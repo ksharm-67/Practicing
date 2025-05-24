@@ -21,7 +21,7 @@ int main(){
     //Change this to the string you want to check is a palindrome
     string pal = "madam";
 
-    //1: it is a palindrom, 0: it is not a palindrome
+    //1: it is a palindrome, 0: it is not a palindrome
     cout << isPalindrome(pal) << endl;
     return 0;
 }
