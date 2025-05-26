@@ -18,7 +18,7 @@ int maxProfit(vector<int>& prices) {
             minPrice = prices[i];                       //Sets the value you should buy for
         }
 
-        if(prices[i] - minPrice > profit){              //Checks if profit if we sold today is greater than previousgit p profit
+        if(prices[i] - minPrice > profit){              //Checks if profit if we sold today is greater than previous profit
             profit = prices[i] - minPrice;
         }
     }
