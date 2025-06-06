@@ -21,6 +21,8 @@ void removeNode(Node* head){
         temp = temp->next;
     }
     //temp is the last element, and prev is second last when this loop ends
+
+    //We also want to set temp's address to nullptr, not just delete it
     prev->next = nullptr;
     delete temp;
 }
