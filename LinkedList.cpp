@@ -59,6 +59,25 @@ Node* createNode(Node* head, int val){
     return head;
 }
 
+//Reverse the LinkedList and return a pointer to head
+Node* reverseList(Node* head){
+    Node* currentNode = head;
+    Node* prevNode = nullptr;
+
+    //Return the head if it's the only element in the LinkedList
+    if (head == nullptr || head->next == nullptr) return head;
+
+    while(currentNode != nullptr){
+        Node* nextNode = currentNode->next;
+        currentNode->next = prevNode;
+        prevNode = currentNode;
+        currentNode = nextNode;
+    }
+
+    head = prevNode;
+    return head;
+}
+
 //Traverse through the LinkedList
 void printList(Node* head){
     Node* temp = head;
@@ -76,9 +95,9 @@ int main(){
     head = createNode(head, 41);
     head = createNode(head, 84);
     head = createNode(head, 97);
+    head = createNode(head, 66);
 
-    head = removeHead(head);
-    removeNode(head);
+    head = reverseList(head);
 
     printList(head);
 }
