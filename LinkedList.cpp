@@ -89,6 +89,15 @@ void printList(Node* head){
     cout << endl;
 }
 
+//Print the elements in reverse order
+void revPrint(Node* head){
+
+    if(head == nullptr) return;
+    revPrint(head->next);
+    cout << head->data << " ";
+    
+}
+
 int main(){
     Node* head = nullptr;
 
@@ -97,7 +106,6 @@ int main(){
     head = createNode(head, 97);
     head = createNode(head, 66);
 
-    head = reverseList(head);
-
-    printList(head);
+    //head = reverseList(head);
+    revPrint(head);
 }
