@@ -95,7 +95,7 @@ void revPrint(Node* head){
     if(head == nullptr) return;
     revPrint(head->next);
     cout << head->data << " ";
-    
+
 }
 
 int main(){
