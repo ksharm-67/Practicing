@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -8,6 +9,13 @@ struct Node{
     Node* left;
     Node* right;
 };
+
+int findHeight(Node* root){
+    
+    if(root == nullptr) return -1;
+
+    return max(findHeight(root->left), findHeight(root->right)) + 1;
+}
 
 Node* insert(Node* root, int data){
 
@@ -29,6 +37,34 @@ Node* insert(Node* root, int data){
     return root;
 }
 
+int findMin(Node* root){
+    
+    Node* temp = root;
+
+    if(temp == nullptr) {
+        cout << "error, empty"; 
+        return -1;
+    }
+
+    while(temp->left != nullptr) temp = temp->left;
+
+    return temp->data;
+}
+
+int findMax(Node* root){
+    
+    Node* temp = root;
+
+    if(temp == nullptr) {
+        cout << "error, empty"; 
+        return -1;
+    }
+
+    while(temp->right != nullptr) temp = temp->right;
+
+    return temp->data;
+}
+
 bool search(Node* root, int data){
     
     if(root == nullptr) return false;
@@ -45,15 +81,19 @@ int main(){
     root->left = nullptr;
     root->right = nullptr;
 
-    root = insert(root, 4);
-    root = insert(root, 1);
-    root = insert(root, 9);
-    root = insert(root, 3);
-    root = insert(root, 6);
-    
-    cout << "Is 8 present? 1 if true, 0 if not: " << search(root, 8) << endl;
+    vector<int> values = {5, 2, 8, 1, 3, 6, 9, 4, 7};
+    for (int val : values) {
+        root = insert(root, val);
+    }
+
+
+    cout << "Is 14 present? 1 if true, 0 if not: " << search(root, 14) << endl;
     cout << "Is 6 present? 1 if true, 0 if not: " << search(root, 6) << endl;
     cout << "Is 1 present? 1 if true, 0 if not: " << search(root, 1) << endl;
+
+    cout << "Minimum element: " << findMin(root) << endl;
+    cout << "Maximum element: " << findMax(root) << endl;
+    cout << "Height of the Tree: " << findHeight(root) << endl;
 
     return 1;
 }
