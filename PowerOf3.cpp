@@ -7,5 +7,5 @@ bool isPowerOfThree(int n) {
 
     double num = log10(n) / log10(3);
     
-    return (floor(num) == num) && (ceil(num == num));
+    return (floor(num) == num) && (ceil(num) == num));
 }
