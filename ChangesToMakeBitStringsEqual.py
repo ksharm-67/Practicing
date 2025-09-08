@@ -12,6 +12,7 @@ class Solution:
         binK = binK.zfill(length)
 
         cnt = 0
+        
         for i in range(len(binN)):
             if binN[i] == '0' and binK[i] == '1':
                 return -1 
