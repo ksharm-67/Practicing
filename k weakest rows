@@ -1,0 +1,18 @@
+class Solution:
+    def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
+        
+        buckets = [[] for _ in range(len(mat[0]) + 1)]
+        #print(buckets)
+
+        for ind, ele in enumerate(mat):
+            buckets[ele.count(1)].append(ind)
+
+        weakest = []
+        for i in buckets:
+            for j in i:
+                if len(weakest) < k:
+                    weakest.append(j)
+                else:
+                    break
+
+        return weakest
