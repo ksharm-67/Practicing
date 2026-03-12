@@ -1,0 +1,13 @@
+class Solution:
+    def appendCharacters(self, s: str, t: str) -> int:
+        
+        pre = ""
+
+        u = 0
+        for i in range(len(s)):
+            if u == len(t):
+                break
+            if s[i] == t[u]:
+                u += 1
+
+        return len(t) - u
