@@ -1,0 +1,29 @@
+import math
+
+def corr(x, y):
+	# [1/n * (sum of 1 to n (x_i - x_mean) * (y_i - y_mean))]
+	# _______________________________________________________
+	#             std_dev(x) * std_dev(y)
+	
+  n = len(x)
+  x_mean, y_mean = sum(x) / n, sum(y) / n
+  
+  prod, cv_x, cv_y = 0, 0, 0
+  
+  for i in range(1, n):
+    calc_x = (x[i] - x_mean)
+    calc_y = (y[i] - y_mean) 
+    
+    cv_x += calc_x ** 2
+    cv_y += calc_y ** 2
+    prod += calc_x * calc_y
+  
+  prod /= n 
+  cv_x = math.sqrt(cv_x / n)
+  cv_y = math.sqrt(cv_y / n)
+  
+  return prod / (cv_x * cv_y)
+	
+	
+	
+	
